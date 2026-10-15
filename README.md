@@ -98,7 +98,7 @@ Open two separate PowerShell terminals:
 ```powershell
 .\venv\Scripts\python.exe voice_listener.py
 ```
- ###Usage & Voice Commands
+ ### Usage & Voice Commands
  ```
  Activate Apex by saying "Hey bro" or "Bro". After the initial prompt, continue issuing commands naturally:
  ##Categories & Examples Voice :
@@ -113,10 +113,11 @@ apex-ai/
 ├── voice_listener.py     # Continuous audio capture, Whisper ASR, and dialogue loop
 ├── requirements.txt      # Python dependencies
 └── README.md             # Project documentation
- LicenseThis project is licensed under the MIT License.
 ```
----
-
+### License
+```
+This project is licensed under the MIT License.
+```
 ### Push the Fix to GitHub
 
 Run this in your PowerShell terminal:
