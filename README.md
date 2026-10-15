@@ -52,16 +52,53 @@
       [PyQt6 Siri HUD]         ──> Real-time Visual State & Audio Feedback
 ```
 ## Tech Stack & PrerequisitesOS:
-Windows 10 / 11 (64-bit)Python: 3.10 to 3.12GPU: NVIDIA GPU with 6GB+ VRAM recommended (CUDA-enabled)Core Libraries:faster-whisper — Fast local ASR enginesounddevice & numpy — Low-latency audio capturefastapi & uvicorn — Backend REST APIPyQt6 — Frameless desktop HUDpycaw & comtypes — Windows Core Audio WASAPI integrationscreen-brightness-control — Display backlight controlpyttsx3 — Offline text-to-speech Installation & Setup1. Clone the RepositoryPowerShellgit clone https://github.com/<your-username>/apex-ai.git
+OS: Windows 10 / 11 (64-bit)
+Python: 3.10 to 3.12
+GPU: NVIDIA GPU with 6GB+ VRAM recommended (CUDA-enabled)
+Core Libraries:
+faster-whisper — Fast local ASR engine
+sounddevice & numpy — Low-latency audio capture
+fastapi & uvicorn — Backend REST API
+PyQt6 — Frameless desktop HUD
+pycaw & comtypes — Windows Core Audio WASAPI integration
+screen-brightness-control — Display backlight control
+pyttsx3 — Offline text-to-speech
+## Installation & Setup
+1. Clone the Repository
+PowerShell
+git clone https://github.com/<your-username>/apex-ai.git
 cd apex-ai
-2. Set Up Virtual EnvironmentPowerShellpython -m venv venv
+2. Set Up Virtual Environment
+PowerShell
+python -m venv venv
 .\venv\Scripts\Activate.ps1
-3. Install DependenciesPowerShellpip install -r requirements.txt
-4. Configure LM Studio (Local Inference)Download and install LM Studio.Search and download: Qwen2.5-7B-Instruct-GGUF (Choose Q4_K_M).Navigate to the Local Server tab (<->):GPU Offload: ON (CUDA, device 0)Limit Model Offload to Dedicated GPU: ONOffload KV Cache to GPU: ONContext Length: 4096 or 8192Model Loading Guardrails: Relaxed (or Custom 6 GB)Start the server on port 1234.
-Running ApexOpen two separate PowerShell terminals:Terminal 1: Start Backend ServerPowerShell.\venv\Scripts\python.exe -m uvicorn server.main:app --host 127.0.0.1 --port 8000
-Terminal 2:
-Launch Voice Listener & HUDPowerShell.\venv\Scripts\python.exe voice_listener.py
- Usage & Voice CommandsActivate Apex by saying "Hey bro" or "Bro". After the initial prompt, continue issuing commands naturally:CategoryExample Voice CommandsBrowser & Apps"Open YouTube", "Open Edge", "Launch VS Code", "Open Calculator"System Volume"Increase volume", "Decrease volume", "Set volume to 40 percent", "Mute"Display Brightness"Increase brightness", "Decrease brightness", "Set brightness to 70 percent"General Q&A"What is RAM?", "Explain binary search in two sentences"Cancel / ExitClick the ✕ button on the floating HUD or stay silent for 4 seconds to enter standby.
+3. Install Dependencies
+PowerShell
+pip install -r requirements.txt
+4. Configure LM Studio (Local Inference)
+Download and install LM Studio.
+Search and download: Qwen2.5-7B-Instruct-GGUF (Choose Q4_K_M).
+Navigate to the Local Server tab (<->):
+GPU Offload: ON (CUDA, device 0)
+Limit Model Offload to Dedicated GPU: ON
+Offload KV Cache to GPU: ON
+Context Length: 4096 or 8192
+Model Loading Guardrails: Relaxed (or Custom 6 GB)
+Start the server on port 1234.
+
+## Running Apex
+Open two separate PowerShell terminals:
+
+Terminal 1: Start Backend Server
+PowerShell
+.\venv\Scripts\python.exe -m uvicorn server.main:app --host 127.0.0.1 --port 8000
+Terminal 2: Launch Voice Listener & HUD
+PowerShell
+.\venv\Scripts\python.exe voice_listener.py
+ ##Usage & Voice CommandsActivate
+ Apex by saying "Hey bro" or "Bro". After the initial prompt, continue issuing commands naturally:
+ CategoryExample Voice CommandsBrowser & Apps
+ "Open YouTube", "Open Edge", "Launch VS Code", "Open Calculator"System Volume"Increase volume", "Decrease volume", "Set volume to 40 percent", "Mute"Display Brightness"Increase brightness", "Decrease brightness", "Set brightness to 70 percent"General Q&A"What is RAM?", "Explain binary search in two sentences"Cancel / ExitClick the ✕ button on the floating HUD or stay silent for 4 seconds to enter standby.
  Project StructurePlaintextapex-ai/
 ├── server/
 │   └── main.py           # FastAPI application, tool schemas, and Win32 handlers
