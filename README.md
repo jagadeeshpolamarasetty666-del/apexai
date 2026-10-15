@@ -51,7 +51,7 @@
              ▼
       [PyQt6 Siri HUD]         ──> Real-time Visual State & Audio Feedback
 ```
-## Tech Stack & PrerequisitesOS:
+## Tech Stack & Prerequisites:
 OS: Windows 10 / 11 (64-bit)
 Python: 3.10 to 3.12
 GPU: NVIDIA GPU with 6GB+ VRAM recommended (CUDA-enabled)
@@ -86,22 +86,27 @@ Context Length: 4096 or 8192
 Model Loading Guardrails: Relaxed (or Custom 6 GB)
 Start the server on port 1234.
 
-## 🚦 Running Apex
+##  Running Apex
 
 Open two separate PowerShell terminals:
 
 ### Terminal 1: Start Backend Server
 ```powershell
 .\venv\Scripts\python.exe -m uvicorn server.main:app --host 127.0.0.1 --port 8000
-Terminal 2: Launch Voice Listener & HUD
-PowerShell
+```
+### Terminal 2: Launch Voice Listener & HUD
+```powershell
 .\venv\Scripts\python.exe voice_listener.py
 ```
- ##Usage & Voice CommandsActivate
- Apex by saying "Hey bro" or "Bro". After the initial prompt, continue issuing commands naturally:
- CategoryExample Voice CommandsBrowser & Apps
+ ###Usage & Voice Commands
+ ```
+ Activate Apex by saying "Hey bro" or "Bro". After the initial prompt, continue issuing commands naturally:
+ ##Categories & Examples Voice :
  "Open YouTube", "Open Edge", "Launch VS Code", "Open Calculator"System Volume"Increase volume", "Decrease volume", "Set volume to 40 percent", "Mute"Display Brightness"Increase brightness", "Decrease brightness", "Set brightness to 70 percent"General Q&A"What is RAM?", "Explain binary search in two sentences"Cancel / ExitClick the ✕ button on the floating HUD or stay silent for 4 seconds to enter standby.
-## Project StructurePlaintextapex-ai/
+```
+### Project Structure
+```
+apex-ai/
 ├── server/
 │   └── main.py           # FastAPI application, tool schemas, and Win32 handlers
 ├── siri_hud.py           # PyQt6 translucent floating overlay widget
@@ -109,6 +114,7 @@ PowerShell
 ├── requirements.txt      # Python dependencies
 └── README.md             # Project documentation
  LicenseThis project is licensed under the MIT License.
+```
 ---
 
 ### Push the Fix to GitHub
