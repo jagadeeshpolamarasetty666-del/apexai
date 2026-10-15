@@ -22,7 +22,7 @@
 
 ##  System Architecture
 
-
+```text
          User Speech
              │
              ▼
@@ -50,6 +50,7 @@
              │
              ▼
       [PyQt6 Siri HUD]         ──> Real-time Visual State & Audio Feedback
+```
 ## Tech Stack & PrerequisitesOS:
 Windows 10 / 11 (64-bit)Python: 3.10 to 3.12GPU: NVIDIA GPU with 6GB+ VRAM recommended (CUDA-enabled)Core Libraries:faster-whisper — Fast local ASR enginesounddevice & numpy — Low-latency audio capturefastapi & uvicorn — Backend REST APIPyQt6 — Frameless desktop HUDpycaw & comtypes — Windows Core Audio WASAPI integrationscreen-brightness-control — Display backlight controlpyttsx3 — Offline text-to-speech Installation & Setup1. Clone the RepositoryPowerShellgit clone https://github.com/<your-username>/apex-ai.git
 cd apex-ai
